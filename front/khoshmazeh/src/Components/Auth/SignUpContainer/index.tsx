@@ -43,11 +43,11 @@ const SignUpContainer = () => {
     setLoading(false);
   };
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col  mb-15  md:mt-20 min-h-screen">
   
 
       <div className="flex-1 flex items-center justify-center bg-white">
-        <form className="w-full flex flex-col space-y-16 items-center bg-white p-6">
+        <form className="w-full flex flex-col md:space-y-16   space-y-8  items-center bg-white p-6">
           <input
             type="text"
             name="fullName"
@@ -91,7 +91,7 @@ const SignUpContainer = () => {
 
           <p className="text-xs text-center text-[#76949F] text-[13px] md:text-[24px]">
             اکانت دارید؟{" "}
-            <a href="/sign-in/step" >
+            <a href="/sign-in/step" className="hover:underline" >
               به ورود بروید
             </a>
           </p>
