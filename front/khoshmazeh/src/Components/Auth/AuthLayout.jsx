@@ -3,12 +3,10 @@ import { Outlet } from "react-router-dom"
 const AuthLayout = () => {
     return (
         <div>
-            <p>header</p>
+            <div className="h-16 bg-[#b0c9b0] mb-20"></div>
             {/* outlet is for forms */}
             <Outlet />
-            <p>
-                <footer></footer>
-            </p>
+            <div className="h-16 bg-[#b0c9b0] mt-20"></div>
         </div>
     )
 }
