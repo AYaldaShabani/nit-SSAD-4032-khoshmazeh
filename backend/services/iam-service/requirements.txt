@@ -1,0 +1,17 @@
+fastapi 
+fastapi-restful
+uvicorn[standard]
+sqlalchemy
+databases
+pydantic
+pydantic-settings
+typing-inspect
+psycopg2-binary
+redis
+python-jose[cryptography]
+pyjwt
+passlib[bcrypt]
+bcrypt==4.0.1
+sqlalchemy-utils
+loguru
+python-dotenv
