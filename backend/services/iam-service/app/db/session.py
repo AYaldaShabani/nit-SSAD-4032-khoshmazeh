@@ -1,7 +1,15 @@
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:Mhtla@83@localhost/Recipe_DB" 
+from app.core.config import settings
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+# URL = "postgresql://postgres:Mhtla83@localhost:5432/IAM_DB"
+
+DATABASE_URL = (
+    f"postgresql://{settings.DATABASE_USER}:{settings.DATABASE_PASSWORD}"
+    f"@{settings.DATABASE_HOST}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}"
+)
+
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
