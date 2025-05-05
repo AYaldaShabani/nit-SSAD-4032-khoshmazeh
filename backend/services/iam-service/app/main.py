@@ -2,8 +2,8 @@ import logging
 
 from fastapi import FastAPI
 
-from api.v1.admin_routes import admin_router
-from api.v1.routes import router
+from app.api.v1.admin_routes import admin_router
+from app.api.v1.routes import router
 
 
 app = FastAPI()
