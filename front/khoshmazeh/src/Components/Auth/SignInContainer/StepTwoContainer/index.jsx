@@ -33,7 +33,7 @@ const StepTwoContainer
     
       <form
         onSubmit={handleSubmit}
-        className="z-10 bg-white w-full min-h-screen  px-6 py-10 rounded-md flex flex-col items-center space-y-6 mt-20"
+        className="z-10 bg-white w-full   px-6 py-10 rounded-md flex flex-col items-center space-y-6 mt-20"
       >
 
         <input
