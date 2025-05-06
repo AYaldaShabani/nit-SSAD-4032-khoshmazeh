@@ -1,49 +1,65 @@
-import { Form, Formik } from "formik";
+import { Form, Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import CustomFeild from "../CustomFeild";
 import CustomButton from "../CustomButton";
 import * as yup from "yup";
+import { sign_up_user } from "../../../Core/Services/Api/Auth.api";
+import { Navigate, useNavigate} from "react-router-dom";
 
 const SignUpContainer = () => {
+  const navigate = useNavigate();
   const onSubmit = async (values) => {
-    console.log(values);
+      console.log(values);
+      const sign = await sign_up_user(values);
+    if (sign) {
+       console.log("hii")
+        navigate("/")
+      }
+      
+      
+    
+       
+    
+    console.log(sign);
   };
   const phoneRegEx = /^(\+98|0)?9\d{9}$/;
   const validayion = yup.object().shape({
-    fullName: yup.string().required("نام و نام خانوادگی الزامی است"),
+    full_name: yup.string().required("نام و نام خانوادگی الزامی است"),
     phone: yup
       .string()
       .matches(phoneRegEx, "شماره تلفن نامعتبر است")
       .required("شماره تلفن الزامی است"),
-    password: yup
-      .string()
-      .required("رمز عبور الزامی است"),
+    password: yup.string().required("رمز عبور الزامی است"),
     email: yup.string().email("ایمیل نامعتبر است").required("ایمیل الزامی است")
   });
   return (
     <div className="flex flex-col h-full  ">
       <div className="flex-1 flex items-center justify-center bg-white">
         <Formik
-          initialValues={{ fullName: "", phone: "", password: "", email: "" }}
+          initialValues={{ full_name: "", phone: "", password: "", email: "" }}
           onSubmit={(values) => onSubmit(values)}
           validationSchema={validayion}
         >
           <Form className="flex flex-col gap-3 justify-center items-center">
             <CustomFeild
-              name={"fullName"}
+              name={"full_name"}
               type="text"
               placeholder="نام و نام خانوادگی"
             />
+            <ErrorMessage name="full_name" />
             <CustomFeild name={"phone"} type="text" placeholder="شماره تلفن" />
+            <ErrorMessage name="phone" />
             <CustomFeild
               name={"password"}
               type="password"
               placeholder="رمز عبور"
             />
+            <ErrorMessage name="password" />
             <CustomFeild name={"email"} type="email" placeholder="ایمیل" />
+            <ErrorMessage name="email" />
             <p className="text-xs text-center text-[#76949F] text-[13px] md:text-[24px]">
               اکانت دارید؟{" "}
-              <a href="/sign-in/step" className="hover:underline">
+              <a href="sign-in/step-one" className="hover:underline">
                 به ورود بروید
               </a>
             </p>

@@ -2,68 +2,62 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React from "react";
-import { Formik , Form} from "formik";
+import { Formik, Form } from "formik";
 import CustomFeild from "../../CustomFeild";
 import * as yup from "yup";
 import CustomButton from "../../CustomButton";
+import { user_login_st1 } from "../../../../Core/Services/Api/Auth.api";
 
 const StepOneContainer = () => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
 
-  // const handleLogin = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setError("");
 
-  //   try {
-  //     const response = await axios.post("/api/auth/login", {
-  //       email,
-  //       password
-  //     });
-
-  //     const token = response.data.token;
-  //     localStorage.setItem("token", token);
-  //     window.location.href = "/";
-  //   } catch (err: any) {
-  //     setError("ایمیل یا رمز عبور اشتباه است");
-  //   }
-  // };
-
-  const onSubmit = async (values) => { console.log(values) }
+  const onSubmit = async (values) => {
+    const loginData = await user_login_st1(values);
+  };
   const validation = yup.object().shape({
     password: yup.string().required("رمز عبور الزامی است"),
     email: yup.string().email("ایمیل نامعتبر است").required("ایمیل الزامی است")
-  })
+  });
 
   return (
-    <div className="border-2 flex justify-center items-center">
-      <Formik initialValues={{ email: "", password: "" }}
-      onSubmit={onSubmit} validationSchema={validation}>
-        <Form  className="flex flex-col gap-3 justify-center items-center">
-          <CustomFeild name={"email"} type={"email"} placeholder="ایمیل خود را وارد کنید" />
-          <CustomFeild name={"password"} type={"password"} placeholder="پسورد" />
+    <div className=" flex justify-center items-center">
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={onSubmit}
+        validationSchema={validation}
+      >
+        <Form className="flex flex-col gap-3 justify-center items-center">
+          <CustomFeild
+            name={"email"}
+            type={"email"}
+            placeholder="ایمیل خود را وارد کنید"
+          />
+          <CustomFeild
+            name={"password"}
+            type={"password"}
+            placeholder="پسورد"
+          />
           <div className="text-sm text-center text-[#76949F] text-[13px] md:text-[24px]">
-          <Link to="/forgot-password" className=" hover:underline">
-            فراموشی رمز
-          </Link>
-        </div>
-        <div className="text-sm text-center text-[#76949F] text-[13px] md:text-[24px]">
-          اکانت ندارید؟{" "}
-          <Link to="/signup" className=" hover:underline">
-            ثبت‌نام کنید
-          </Link>
+            <Link to="/auth/sign-in/step-two" className=" hover:underline">
+              فراموشی رمز
+            </Link>
           </div>
-          <CustomButton text="ورود" />        
-  
+          <div className="text-sm text-center text-[#76949F] text-[13px] md:text-[24px]">
+            اکانت ندارید؟{" "}
+            <Link to="/auth/sign-up" className=" hover:underline">
+              ثبت‌نام کنید
+            </Link>
+          </div>
+          <CustomButton text="ورود" />
         </Form>
-          </Formik>
+      </Formik>
     </div>
   );
 };
 
 export default StepOneContainer;
-      {/* <form
+{
+  /* <form
         onSubmit={handleLogin}
         className="flex flex-col md:space-y-16   space-y-8   items-center border-2 border-pink-500 "
       >
@@ -106,4 +100,5 @@ export default StepOneContainer;
         >
           ورود
         </button>
-      </form> */}
+      </form> */
+}

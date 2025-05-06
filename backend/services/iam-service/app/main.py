@@ -1,12 +1,28 @@
 import logging
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.admin_routes import admin_router
 from app.api.v1.routes import router
 
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",  # Allow requests from localhost
+    "http://localhost:5174",  # Allow requests from a specific port (e.g., React app)
+]
+
+# Add CORSMiddleware to allow cross-origin requests
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # List of allowed origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
 
 app.include_router(router, prefix="/users", tags=["users"])
 app.include_router(admin_router, prefix="/admin", tags=["admin"])
