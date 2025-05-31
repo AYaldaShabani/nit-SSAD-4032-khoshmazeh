@@ -11,6 +11,7 @@ import StepTwo from "../../Pages/Auth/SignIn/StepTwo"
 import StepThree from "../../Pages/Auth/SignIn/StepThree"
 import SignUp from "../../Pages/Auth/SignUp"
 
+
 const RouterConfig = () => {
     return (
         <Routes>
@@ -20,6 +21,7 @@ const RouterConfig = () => {
                 <Route path='food-detail' element={<FoodDetail />} />
                 <Route path='food-list' element={<FoodList />} />
                 <Route path='user-profile' element={<UserProfile />} />
+              
             </Route>
             <Route path='auth' element={<AuthLayout />}>
                 <Route path='sign-in/step-one' element={<StepOne />} />
@@ -28,6 +30,7 @@ const RouterConfig = () => {
                 <Route path='sign-up' element={<SignUp />}/>
                 
             </Route>
+            
             <Route path='*' element={<h1>404</h1>} />
         </Routes>
        
