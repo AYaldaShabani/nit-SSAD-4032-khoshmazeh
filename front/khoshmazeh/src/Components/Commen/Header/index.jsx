@@ -6,17 +6,17 @@ const Header = () => {
    
   return (
    <div className="w-full">
-      {/* نوار بالایی سبز */}
+      
       <div className="w-full h-6 bg-[#B0C4B1]" />
 
-      {/* هدر اصلی */}
+    
       <header className="w-full bg-[#F8F8F8] h-20 px-4 py-2 flex items-center justify-between shadow-sm">
-        {/* راست: خوشمزه */}
+        
         <div className="text-3xl font-bold text-[#D08C4F] whitespace-nowrap mr-8">
           خوشمزه
         </div>
 
-        {/* وسط: نوار جستجو */}
+        
         <div className="flex-1 mx-4 max-w-md ">
           <div className="relative ">
             <input
@@ -32,7 +32,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* چپ: ورود/ثبت‌نام */}
+        
         <div className="flex items-center gap-2 text-sm text-gray-900 whitespace-nowrap  ml-8">
           <FaUser 
           className="text-[#B0C4B1] text-xl"/>
