@@ -19,9 +19,6 @@ const PersonalInfoPage = () => {
      
       <div className=" flex flex-col flex-grow">
        
-        <div className="flex justify-start p-4">
-          <button className="bg-[#D08C4F] text-white py-1 px-4 rounded-md shadow-md text-sm h-10 w-20">بازگشت</button>
-        </div>
 
      
         <div className="flex flex-col items-center gap-6 px-4 mt-4 mb-8">
