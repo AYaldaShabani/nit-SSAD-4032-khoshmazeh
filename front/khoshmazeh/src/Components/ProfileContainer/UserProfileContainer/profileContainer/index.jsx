@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     axios
@@ -10,6 +14,12 @@ const ProfilePage = () => {
       .then((res) => setUser(res.data))
       .catch((err) => console.error("خطا در دریافت اطلاعات کاربر:", err));
   }, []);
+
+   const buttons = [
+    { label: "اطلاعات شخصی", path: "/UserInfo" },
+    { label: "مورد علاقه ها", path: "/LikedPosts" },
+    { label: "آپلود پست", path: "/UploadPost" },
+  ];
 
   return (
     <div className="py-10 px-4 relative flex justify-center bg-white">
@@ -42,12 +52,13 @@ const ProfilePage = () => {
         
         <div className="w-full md:w-1/2 flex justify-center md:justify-start order-2">
           <div className="flex flex-col gap-4 w-full max-w-md">
-            {["اطلاعات شخصی", "مورد علاقه ها", "آپلود پست"].map((text, idx) => (
+            {buttons.map(({ label, path }, idx) => (
               <button
                 key={idx}
+                onClick={() => navigate(path)}
                 className="bg-[#B0C4B1] w-full py-3 rounded-xl text-gray-800 font-semibold text-base shadow"
               >
-                {text}
+                {label}
               </button>
             ))}
           </div>
