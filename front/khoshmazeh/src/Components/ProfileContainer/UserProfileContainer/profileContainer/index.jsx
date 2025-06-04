@@ -24,7 +24,7 @@ const ProfilePage = () => {
   return (
     <div className="py-10 px-4 relative flex justify-center bg-white">
       
-      <button className="absolute top-4 right-4 bg-[#76949F] text-white py-2 px-4 rounded text-sm shadow z-10 h-10">
+      <button className="absolute top-4 right-4 bg-[#76949F] text-white py-2 px-4 rounded text-sm shadow z-10 h-10"    onClick={() => navigate("/Subscription")}>
         خرید اشتراک
       </button>
 
