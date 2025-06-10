@@ -1,6 +1,7 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
    
@@ -33,11 +34,11 @@ const Header = () => {
         </div>
 
         
-        <div className="flex items-center gap-2 text-sm text-gray-900 whitespace-nowrap  ml-8">
+        <Link to="/auth/sign-in/step-one" className="flex items-center gap-2 text-sm text-gray-900 whitespace-nowrap  ml-8">
           <FaUser 
           className="text-[#B0C4B1] text-xl"/>
           <span>ورود/ثبت‌نام</span>
-        </div>
+        </Link>
       </header>
     </div>
   );
