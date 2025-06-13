@@ -11,6 +11,11 @@ import StepTwo from "../../Pages/Auth/SignIn/StepTwo";
 import StepThree from "../../Pages/Auth/SignIn/StepThree";
 import SignUp from "../../Pages/Auth/SignUp";
 import SingleCategoryPage from "../../Pages/Category/SingleCategoryPage/insex";
+import UserInfo from "../../Pages/Profile/UserProfile/PersonalInfo"
+import UploadPost from "../../Pages/Profile/UserProfile/UploadPost"
+import LikedPosts from "../../Pages/Profile/UserProfile/LikedPosts"
+import Subscription from "../../Pages/Profile/UserProfile/Subscription"
+
 
 const RouterConfig = () => {
   return (
@@ -23,7 +28,11 @@ const RouterConfig = () => {
 
         <Route path="food-detail" element={<FoodDetail />} />
         <Route path="food-list" element={<FoodList />} />
-        <Route path="user-profile" element={<UserProfile />} />
+              <Route path="user-profile" element={<UserProfile />} />
+               <Route path="UserInfo" element={<UserInfo/>}/>
+                <Route path="UploadPost" element={<UploadPost/>}/>
+                <Route path="LikedPosts" element={<LikedPosts/>}/>
+                <Route path="Subscription" element={<Subscription/>}/>
       </Route>
       <Route path="auth" element={<AuthLayout />}>
         <Route path="sign-in/step-one" element={<StepOne />} />
