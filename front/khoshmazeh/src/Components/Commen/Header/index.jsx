@@ -17,10 +17,10 @@ const Header = () => {
       <div className="w-full h-20 sm:h-40 shadow-sm flex items-center px-6 sm:px-32 justify-center">
         {isMobile ? (
           <>
-            <div className="text-orangeBrown text-3xl font-bold w-1/2">
+            <div className="text-orangeBrown text-3xl font-bold w-1/2" onClick={() => { navigateLanding("/") }}>
               خوشمزه
             </div>
-            <div className="text-orangeBrown text-xs font-bold w-1/2 justify-center items-center flex">
+            <div className="text-orangeBrown text-xs font-bold w-1/2 justify-center items-center flex" onClick={() => {navigateSignIn("auth/sign-in/step-one")}}>
               ورود/ثبت نام
             </div>
           </>
