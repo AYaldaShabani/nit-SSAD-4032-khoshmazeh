@@ -1,0 +1,22 @@
+
+first sort col : 
+
+TypeName : نوع 
+ StatusName : وضعیت 
+ LevelName  : درجه سختی 
+ Cost 	 : قیمت
+ LastUpdate : آخرین بروزرسانی
+ InsertDate : جدیدترین
+ TeacherName :  اساتید
+
+
+second col  : 
+
+	صعودی 
+	نزولی
+
+
+
+#F7F7F9
+#EFEFF1
+#E6E9EF
