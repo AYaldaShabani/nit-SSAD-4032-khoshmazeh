@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaClock, FaHeart } from "react-icons/fa";
-import axios from "axios";
+import { getRecipeById } from "./src/Core/Services/Api/food-detail.api";
 
 const RecipePage = () => {
   const [recipe, setRecipe] = useState(null);
@@ -9,43 +9,7 @@ const RecipePage = () => {
   const toggleLike = () => setLiked(!liked);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/recipe/1")
-      .then((res) => setRecipe(res.data))
-      .catch(() => {
-       
-        setRecipe({
-          image: "./src/assets/khoresh-gheymeh.jpg",
-          video: "/video.mp4",
-          title: "خورشت قیمه",
-          ingredients: ["گوشت گوسفندی", "لپه", "لیمو عمانی", "رب گوجه‌فرنگی"],
-          instructions:
-            "ابتدا پیاز را خرد کرده و تفت می‌دهیم. سپس گوشت را اضافه می‌کنیم. لپه را جداگانه می‌پزیم و با رب گوجه به مواد اضافه می‌کنیم. در آخر لیمو عمانی را اضافه کرده و می‌گذاریم غذا جا بیفتد.",
-          author: {
-            username: "یوزر نیم نویسنده",
-            avatar: "./src/assets/Avatar-Male.png",
-          },
-          cook_time: "45 دقیقه",
-          likes: 23,
-          comments: [
-            {
-              id: 1,
-              text: "عالی بود! حتماً دوباره درست می‌کنم.",
-              avatar: "./src/assets/Avatar-Male.png",
-            },
-            {
-              id: 2,
-              text: "کمی ترش بود، ولی خوشمزه بود.",
-              avatar: "./src/assets/Avatar-Male.png",
-            },
-            {
-              id: 3,
-              text: "خوب بود.",
-              avatar: "./src/assets/Avatar-Male.png",
-            },
-          ],
-        });
-      });
+    getRecipeById(1).then(setRecipe);
   }, []);
 
   if (!recipe) return <div>در حال بارگذاری...</div>;
@@ -132,3 +96,27 @@ const RecipePage = () => {
 };
 
 export default RecipePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

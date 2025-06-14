@@ -1,5 +1,5 @@
 import { useMediaQuery } from "react-responsive";
-const FoodCard = ({ food_id, title, cook_time, difficulty, img_url }) => {
+const FoodCard = ({  title, cook_time, difficulty, img_url }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
